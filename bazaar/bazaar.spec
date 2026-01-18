@@ -44,7 +44,7 @@ applications and add-ons from Flatpak remotes, particularly Flathub.
 It emphasizes supporting the developers who make the Linux desktop possible.
 
 %prep
-%autosetup -n bazaar-%{version}
+%autosetup -n %{name}-%{release_commit}
 
 %conf
 %meson \

@@ -47,7 +47,7 @@ Command-line tools for testing and debugging the krunner-bazaar plugin,
 including a standalone tool for testing Bazaar D-Bus interactions.
 
 %prep
-%autosetup
+%autosetup -n %{name}-%{release_commit}
 
 %build
 %cmake \
