@@ -10,7 +10,7 @@
 
 Name:           bazaar
 Version:        0.7.12
-Release:        1%{?dist}
+Release:        4%{?dist}
 Summary:        Flatpak-centric software center and app store
 
 License:        GPL-3.0-only
@@ -25,7 +25,7 @@ ExcludeArch:    %{ix86}
 BuildRequires:  gcc
 BuildRequires:  meson
 BuildRequires:  systemd-rpm-macros
-BuildRequires:  blueprint-compiler
+BuildRequires:  blueprint-compiler >= 0.20
 BuildRequires:  desktop-file-utils
 BuildRequires:  pkgconfig(libadwaita-1)
 BuildRequires:  pkgconfig(xmlb)
@@ -45,6 +45,13 @@ BuildRequires:  pkgconfig(libproxy-1.0)
 A new app store with a focus on discovering and installing
 applications and add-ons from Flatpak remotes, particularly Flathub.
 It emphasizes supporting the developers who make the Linux desktop possible.
+
+%package devel
+Summary:        Development files for the Bazaar GTK extensions
+Requires:       %{name}%{?_isa} = %{version}-%{release}
+
+%description devel
+Development files for Bazaar GTK extensions
 
 %prep
 %autosetup -n %{name}-%{release_commit} -p1
@@ -78,6 +85,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{appid}.desktop
 %{_datadir}/applications/%{appid}.desktop
 %{_bindir}/%{name}
 %{_bindir}/%{name}-dl-worker
+%{_libdir}/libbge-0.1.so
 %{_userunitdir}/%{appid}.service
 %{_datadir}/dbus-1/services/%{appid}.service
 %{_datadir}/glib-2.0/schemas/%{appid}.gschema.xml
@@ -86,7 +94,15 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{appid}.desktop
 %{_datadir}/metainfo/%{appid}.metainfo.xml
 %{_datadir}/gnome-shell/search-providers/%{appid}.search-provider.ini
 
+%files devel
+%{_libdir}/pkgconfig/bge-0.1.pc
+%{_includedir}/bge/
+
 %changelog
+* Tue Mar 10 2026 alexvojproc <git@to.alexvp.net>
+- Specify blueprint-compiler >= 0.20
+- Install libbge (Bazaar GTK Extensions)
+
 * Mon Jan 19 2026 alexvojproc <git@to.alexvp.net>
 - Remove deprecated config paths and Universal Blue references
 - Use commit hashes instead of release tags
