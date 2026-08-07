@@ -94,7 +94,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{appid}.desktop
 %{_bindir}/%{name}-dl-worker
 %{_libdir}/libbge.so.0*
 %{_userunitdir}/%{appid}.service
-%{_datadir}/dbus-1/services/%{appid}.service
+%{_datadir}/dbus-1/services/%{appid}.SearchProvider.service
 %{_datadir}/glib-2.0/schemas/%{appid}.gschema.xml
 %{_datadir}/icons/hicolor/scalable/apps/%{appid}.svg
 %{_datadir}/icons/hicolor/symbolic/apps/%{appid}-symbolic.svg
