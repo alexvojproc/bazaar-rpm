@@ -5,13 +5,13 @@
 # SPDX-License-Identifier: Apache-2.0
 
 %global appid io.github.kolunmi.Bazaar
-# renovate: datasource=github-tags depName=bazaar-org/bazaar currentValue=0.9.1
-%global release_commit 85ae777f65852e45d0796808fd89d27916c8ed5f
+# renovate: datasource=github-tags depName=bazaar-org/bazaar currentValue=0.9.2
+%global release_commit 917017d75a5dfa7e304fb94855b577d85e19f1bc
 
 %global debug_package %{nil}
 
 Name:           bazaar
-Version:        0.9.1
+Version:        0.9.2
 Release:        1%{?dist}
 Summary:        Flatpak-centric software center and app store
 
@@ -90,8 +90,8 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{appid}.desktop
 %doc README.md
 %{_datadir}/applications/%{appid}.desktop
 %{_bindir}/%{name}
+%{_bindir}/%{name}-daemon
 %{_bindir}/%{name}-dl-worker
-%{_bindir}/%{name}-refresh-worker
 %{_libdir}/libbge.so.0*
 %{_userunitdir}/%{appid}.service
 %{_datadir}/dbus-1/services/%{appid}.service
